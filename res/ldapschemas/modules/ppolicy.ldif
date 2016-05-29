@@ -1,0 +1,14 @@
+dn: cn=module,cn=config
+objectClass: olcModuleList
+cn: module
+olcModulePath: /usr/lib/ldap
+olcModuleLoad: ppolicy.la
+
+dn: olcOverlay=ppolicy,olcDatabase={1}hdb,cn=config
+objectClass: olcOverlayConfig
+objectClass: olcPPolicyConfig
+olcOverlay: ppolicy
+olcPPolicyDefault: cn=Default Policy,ou=pwpolicies,dc=bombardier,dc=com
+olcPPolicyHashCleartext: TRUE
+olcPPolicyUseLockout: TRUE
+olcPPolicyForwardUpdates: FALSE
